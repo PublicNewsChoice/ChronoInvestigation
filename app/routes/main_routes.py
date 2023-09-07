@@ -1,7 +1,12 @@
-from datetime import datetime
+from flask import render_template, Blueprint
 
-def format_datetime(value):
-    """
-    Formats a datetime object to a more readable string format
-    """
-    return value.strftime('%Y-%m-%d %H:%M:%S')
+main = Blueprint('main', __name__)
+
+@main.route('/')
+@main.route('/home')
+def home():
+    return render_template('index.html', title='Home')
+
+@main.route('/about')
+def about():
+    return render_template('about.html', title='About')

@@ -1,5 +1,5 @@
-from app import db
-from app.models.organization import Organization
+from app.database import db
+from app.models import Organization
 
 def create_organization(data):
     new_organization = Organization(

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Meta, title, CSS, favicons, etc. -->
+  <meta charset="utf-8">
+  <title>Your App Name</title>
+  <!-- Include a CSS file to style your page -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <ul>
+      <li><a href="{{ url_for('main.home') }}">Home</a></li>
+      <li><a href="{{ url_for('organization.organizations') }}">Organizations</a></li>
+      <li><a href="{{ url_for('person.people') }}">People</a></li>
+      <!-- Add links to other sections as necessary -->
+    </ul>
+  </nav>
+
+  <!-- Welcome Message -->
+  <header>
+    <h1>Welcome to Your App Name</h1>
+    <p>Your app description here...</p>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <h2>Main Features</h2>
+    <div>
+      <!-- Links or buttons to different functionalities of your app -->
+      <a href="{{ url_for('organization.organizations') }}">View Organizations</a>
+      <a href="{{ url_for('person.people') }}">View People</a>
+      <!-- Add links to other functionalities as necessary -->
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2023 Your App Name</p>
+    <!-- Add other footer contents such as contact info, social media links, etc. -->
+  </footer>
+</body>
+</html>

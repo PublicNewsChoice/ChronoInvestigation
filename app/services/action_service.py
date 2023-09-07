@@ -1,4 +1,4 @@
-from app import db
+from app.database import db
 from app.models import Action
 
 def get_all_actions():
