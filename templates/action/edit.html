@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form method="post">
+    <!-- CSRF token for security -->
+    {{ form.hidden_tag() }}
+
+    <!-- Input for the Action Name -->
+    <label for="action_name">Action Name:</label>
+    <input type="text" id="action_name" name="action_name" value="{{ action.action_name }}" required><br><br>
+
+    <!-- Input for the Action Description -->
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" required>{{ action.description }}</textarea><br><br>
+
+    <!-- Input for the Action Date -->
+    <label for="action_date">Action Date:</label>
+    <input type="date" id="action_date" name="action_date" value="{{ action.action_date }}" required><br><br>
+
+    <!-- Input for the Associated Event -->
+    <label for="event_id">Associated Event:</label>
+    <select id="event_id" name="event_id" required>
+        <!-- Dynamically fill this dropdown with events from your database -->
+        {% for event in events %}
+        <option value="{{ event.id }}" {% if event.id == action.event_id %}selected{% endif %}>{{ event.name }}</option>
+        {% endfor %}
+    </select><br><br>
+
+    <!-- Submit Button -->
+    <input type="submit" value="Update Action">
+</form>
+{% endblock %}

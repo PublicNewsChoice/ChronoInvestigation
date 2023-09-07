@@ -1,0 +1,25 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Edit Event: {{ event.name }}</h1>
+  <form method="POST">
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" value="{{ event.name }}" required>
+    </div>
+    <div>
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" required>{{ event.description }}</textarea>
+    </div>
+    <div>
+      <label for="date">Date:</label>
+      <input type="date" id="date" name="date" value="{{ event.date }}" required>
+    </div>
+    <div>
+      <label for="location">Location:</label>
+      <input type="text" id="location" name="location" value="{{ event.location }}" required>
+    </div>
+    <button type="submit">Save Changes</button>
+  </form>
+  <a href="{{ url_for('event_detail', id=event.id) }}">Cancel and go back to Event Detail</a>
+{% endblock %}

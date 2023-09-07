@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Display all the action's details in a read-only format -->
+<p>Name: {{ action.name }}</p>
+
+<!-- Repeat for other attributes... -->
+
+<a href="{{ url_for('action.edit', id=action.id) }}">Edit</a>
+<a href="{{ url_for('action.delete', id=action.id) }}">Delete</a>
+{% endblock %}

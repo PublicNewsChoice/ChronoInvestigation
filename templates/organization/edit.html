@@ -1,0 +1,20 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Edit Organization: {{ organization.name }}</h1>
+  
+  <form method="POST">
+    <!-- Add fields for the organization's attributes here with pre-filled values. For example: -->
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" value="{{ organization.name }}" required><br>
+
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" required>{{ organization.description }}</textarea><br>
+
+    <!-- Add other necessary fields -->
+
+    <button type="submit">Save Changes</button>
+  </form>
+
+  <a href="{{ url_for('organization_detail', id=organization.id) }}">Back to Organization Detail</a>
+{% endblock %}

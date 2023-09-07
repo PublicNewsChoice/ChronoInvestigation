@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table>
+    <tr>
+        <!-- Define table headers based on the action attributes -->
+        <th>Name</th>
+        <!-- Repeat for other attributes... -->
+        <th>Actions</th>
+    </tr>
+    {% for action in actions %}
+    <tr>
+        <td>{{ action.name }}</td>
+        <!-- Repeat for other attributes... -->
+        <td>
+            <a href="{{ url_for('action.detail', id=action.id) }}">Detail</a>
+            <a href="{{ url_for('action.edit', id=action.id) }}">Edit</a>
+            <a href="{{ url_for('action.delete', id=action.id) }}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<a href="{{ url_for('action.create') }}">Create New Action</a>
+{% endblock %}

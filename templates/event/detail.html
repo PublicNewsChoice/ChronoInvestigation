@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Event Details</h1>
+    <h2>{{ event.name }}</h2>
+    <p><strong>Date:</strong> {{ event.date }}</p>
+    <p><strong>Description:</strong> {{ event.description }}</p>
+
+    <a href="{{ url_for('event_edit', id=event.id) }}" class="btn btn-warning">Edit</a>
+    <a href="{{ url_for('event_delete', id=event.id) }}" class="btn btn-danger">Delete</a>
+    <a href="{{ url_for('event_list') }}" class="btn btn-secondary">Back to list</a>
+</div>
+{% endblock %}

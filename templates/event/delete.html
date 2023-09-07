@@ -1,0 +1,12 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Delete Event: {{ event.name }}</h1>
+  <p>Are you sure you want to delete this event?</p>
+
+  <form method="POST">
+    <button type="submit">Yes, Delete</button>
+  </form>
+  
+  <a href="{{ url_for('event_detail', id=event.id) }}">No, Go Back</a>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>{{ organization.name }}</h1>
+
+  <p>ID: {{ organization.id }}</p>
+  <!-- Display other attributes of the organization here -->
+
+  <a href="{{ url_for('organization_edit', id=organization.id) }}">Edit</a>
+  <a href="{{ url_for('organization_delete', id=organization.id) }}">Delete</a>
+{% endblock %}

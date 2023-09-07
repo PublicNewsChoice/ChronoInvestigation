@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>All Events</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for event in events %}
+            <tr>
+                <td>{{ event.name }}</td>
+                <td>{{ event.date }}</td>
+                <td>{{ event.description }}</td>
+                <td>
+                    <a href="{{ url_for('event_detail', id=event.id) }}" class="btn btn-info">Details</a>
+                    <a href="{{ url_for('event_edit', id=event.id) }}" class="btn btn-warning">Edit</a>
+                    <a href="{{ url_for('event_delete', id=event.id) }}" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('event_create') }}" class="btn btn-success">Create New Event</a>
+</div>
+{% endblock %}
