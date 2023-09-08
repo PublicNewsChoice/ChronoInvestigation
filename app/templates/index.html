@@ -16,48 +16,52 @@
       <li><a href="{{ url_for('timeline_creator.index') }}">Timeline Creator</a></li>
       <li><a href="{{ url_for('timeline_linking.index') }}">Timeline Linking</a></li>
       <li><a href="{{ url_for('interactive_visualization.index') }}">Interactive Visualization</a></li>
-      <!-- Add links to other sections as necessary -->
     </ul>
   </nav>
 
   <!-- Header Section -->
   <header class="home-header">
     <h1>Welcome to the ChronoInvestigation Project</h1>
-    <p>Developing a Python tool that facilitates visual investigative scenarios, promoting a detailed chronological visualization of events and their interconnections.</p>
+    <p>Your one-stop solution for detailed chronological visualizations of complex scenarios.</p>
   </header>
 
   <!-- Main Content -->
   <main class="home-main">
-    <h2>Features</h2>
+    <section class="features">
+      <h2>Features</h2>
+      <div class="feature-section">
+        <h3>Visual Timeline Creator</h3>
+        <p>Create detailed timelines showcasing a chronological series of events and analyze them visually.</p>
+        <a href="{{ url_for('timeline_creator.index') }}">Explore</a>
+      </div>
+      <div class="feature-section">
+        <h3>Timeline Linking</h3>
+        <p>Connect events from different timelines to gain a comprehensive understanding of intricate scenarios.</p>
+        <a href="{{ url_for('timeline_linking.index') }}">Explore</a>
+      </div>
+      <div class="feature-section">
+        <h3>Interactive Visualization</h3>
+        <p>Interactively visualize every detail in a chronological event series to garner in-depth insights.</p>
+        <a href="{{ url_for('interactive_visualization.index') }}">Explore</a>
+      </div>
+    </section>
 
-    <!-- Feature Sections with links to respective tools/features -->
-    <div class="feature-section">
-      <h3>Visual Timeline Creator</h3>
-      <p>Create and delineate a series of events in chronological order.</p>
-      <a href="{{ url_for('timeline_creator.index') }}">Go to Visual Timeline Creator</a>
-    </div>
+    <!-- Tutorials and Documentation -->
+    <section class="guidance">
+      <h2>Tutorials and Documentation</h2>
+      <p>Get started easily with our user-friendly tutorials and comprehensive documentation.</p>
+      <!-- Add links to tutorial and documentation pages -->
+    </section>
 
-    <div class="feature-section">
-      <h3>Timeline Linking</h3>
-      <p>Link events from different timelines for a broader picture.</p>
-      <a href="{{ url_for('timeline_linking.index') }}">Go to Timeline Linking</a>
-    </div>
-
-    <div class="feature-section">
-      <h3>Interactive Visualization</h3>
-      <p>A user-friendly interface to gain insights into individual events and connections.</p>
-      <a href="{{ url_for('interactive_visualization.index') }}">Go to Interactive Visualization</a>
-    </div>
-
-    <!-- Include similar sections for 'In Progress' and 'Planned' features as they become available -->
+    <!-- Testimonials -->
+    <section class="testimonials">
+      <h2>What Users Are Saying</h2>
+      <!-- Display testimonials from users here -->
+    </section>
 
   </main>
 
   <!-- Footer -->
   <footer>
     <p>© 2023 ChronoInvestigation Project</p>
-    <p>Contact us at: (your contact information)</p>
-    <p>Project licensed under the MIT License. See LICENSE.md for details.</p>
-  </footer>
-</body>
-</html>
+    <p>Contact us at: info@chronoinvestigation.com</p>

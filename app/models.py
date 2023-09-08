@@ -1,63 +1,58 @@
 from datetime import datetime
 from app.database import db
 
+# Define association tables for many-to-many relationships
+organization_timeline = db.Table('organization_timeline',
+                                 db.Column('organization_id', db.Integer, db.ForeignKey('organization.id'), primary_key=True),
+                                 db.Column('timeline_id', db.Integer, db.ForeignKey('timeline.id'), primary_key=True)
+                                 )
+
+person_timeline = db.Table('person_timeline',
+                           db.Column('person_id', db.Integer, db.ForeignKey('person.id'), primary_key=True),
+                           db.Column('timeline_id', db.Integer, db.ForeignKey('timeline.id'), primary_key=True)
+                           )
+
+event_timeline = db.Table('event_timeline',
+                          db.Column('event_id', db.Integer, db.ForeignKey('event.id'), primary_key=True),
+                          db.Column('timeline_id', db.Integer, db.ForeignKey('timeline.id'), primary_key=True)
+                          )
+
+action_timeline = db.Table('action_timeline',
+                           db.Column('action_id', db.Integer, db.ForeignKey('action.id'), primary_key=True),
+                           db.Column('timeline_id', db.Integer, db.ForeignKey('timeline.id'), primary_key=True)
+                           )
 
 class Organization(db.Model):
     __tablename__ = 'organization'
-
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    name = db.Column(db.String(100), nullable=False)
-    address = db.Column(db.String(200), nullable=True)
-    email = db.Column(db.String(100), unique=True, nullable=True)
-    phone = db.Column(db.String(20), nullable=True)
-
-    created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-    updated_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow, onupdate=datetime.utcnow)
-
-    def __repr__(self):
-        return f'<Organization {self.name}>'
-
-
-class Event(db.Model):
-    __tablename__ = 'event'
-
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    name = db.Column(db.String(100), nullable=False)
-    date = db.Column(db.DateTime, nullable=False)
-    # ... (define other fields here as needed)
-
-    created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-    updated_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow, onupdate=datetime.utcnow)
-
-    def __repr__(self):
-        return f'<Event {self.name}>'
-
+    # ... (other fields here)
+    timelines = db.relationship('Timeline', secondary=organization_timeline, back_populates='organizations')
 
 class Person(db.Model):
     __tablename__ = 'person'
-
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    first_name = db.Column(db.String(50), nullable=False)
-    last_name = db.Column(db.String(50), nullable=False)
-    # ... (define other fields here as needed)
+    # ... (other fields here)
+    timelines = db.relationship('Timeline', secondary=person_timeline, back_populates='people')
 
-    created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-    updated_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow, onupdate=datetime.utcnow)
-
-    def __repr__(self):
-        return f'<Person {self.first_name} {self.last_name}>'
-
+class Event(db.Model):
+    __tablename__ = 'event'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    # ... (other fields here)
+    timelines = db.relationship('Timeline', secondary=event_timeline, back_populates='events')
 
 class Action(db.Model):
     __tablename__ = 'action'
-
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    name = db.Column(db.String(100), nullable=False)
-    description = db.Column(db.String(500), nullable=True)
-    # ... (define other fields here as needed)
+    # ... (other fields here)
+    timelines = db.relationship('Timeline', secondary=action_timeline, back_populates='actions')
 
-    created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-    updated_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow, onupdate=datetime.utcnow)
+class Timeline(db.Model):
+    __tablename__ = 'timeline'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    # ... (other fields here)
+    events = db.relationship('Event', secondary=event_timeline, back_populates='timelines')
+    actions = db.relationship('Action', secondary=action_timeline, back_populates='timelines')
+    people = db.relationship('Person', secondary=person_timeline, back_populates='timelines')
+    organizations = db.relationship('Organization', secondary=organization_timeline, back_populates='timelines')
 
-    def __repr__(self):
-        return f'<Action {self.name}>'
+# Remember to add the created_at and updated_at fields, and any other fields you need, back into each class.
