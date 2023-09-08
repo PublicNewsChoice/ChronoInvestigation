@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ChronoInvestigation - Timeline Linking</title>
+  <!-- Include the general style CSS file to style your page -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <!-- Include a CSS file specific to the timeline linking page -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/timeline_linking.css') }}">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <ul>
+      <li><a href="{{ url_for('main.home') }}">Home</a></li>
+      <li><a href="{{ url_for('organization.organizations') }}">Organizations</a></li>
+      <li><a href="{{ url_for('person.people') }}">People</a></li>
+      <li><a href="{{ url_for('timeline_creator.index') }}">Timeline Creator</a></li>
+      <li><a href="{{ url_for('timeline_linking.index') }}">Timeline Linking</a></li>
+      <!-- Add links to other sections as necessary -->
+    </ul>
+  </nav>
+
+  <!-- Header Section -->
+  <header class="timeline-linking-header">
+    <h1>Timeline Linking</h1>
+    <p>Visualize and interconnect events across multiple timelines, crafting a broader picture of the narratives.</p>
+  </header>
+
+  <!-- Main Content -->
+  <main class="timeline-linking-main">
+    <h2>Features</h2>
+
+    <!-- Feature Section: Create New Link -->
+    <div class="feature-section">
+      <h3>Create New Link</h3>
+      <p>Establish connections between events from different timelines, providing a cohesive overview of the interconnected narratives.</p>
+      <a href="#!">Create New Link</a> <!-- Update href with the correct route when available -->
+    </div>
+
+    <!-- Feature Section: View Links -->
+    <div class="feature-section">
+      <h3>View Links</h3>
+      <p>Explore the established links and understand the narratives at a glance.</p>
+      <a href="#!">View Links</a> <!-- Update href with the correct route when available -->
+    </div>
+
+    <!-- Feature Section: Edit Links -->
+    <div class="feature-section">
+      <h3>Edit Links</h3>
+      <p>Revise and update the existing links to ensure the accuracy and relevance of the interconnected narratives.</p>
+      <a href="#!">Edit Links</a> <!-- Update href with the correct route when available -->
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2023 ChronoInvestigation</p>
+    <!-- Add other footer contents such as contact info, social media links, etc. -->
+  </footer>
+</body>
+</html>

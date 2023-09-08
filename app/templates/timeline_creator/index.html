@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Timeline Creator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <ul>
+      <li><a href="{{ url_for('main.home') }}">Home</a></li>
+      <li><a href="{{ url_for('organization.organizations') }}">Organizations</a></li>
+      <li><a href="{{ url_for('person.people') }}">People</a></li>
+      <li><a href="{{ url_for('timeline_creator.index') }}">Timeline Creator</a></li>
+      <li><a href="{{ url_for('timeline_linking.index') }}">Timeline Linking</a></li>
+      <!-- Add links to other sections as necessary -->
+    </ul>
+  </nav>
+
+  <!-- Header Section -->
+  <header class="home-header">
+    <h1>Create Your Timeline</h1>
+    <p>Define events and their details to build a detailed timeline.</p>
+  </header>
+
+  <!-- Main Content -->
+  <main class="home-main">
+    <form action="/timeline_creator/create" method="post" class="creation-form">
+      <label for="event-name">Event Name:</label>
+      <input type="text" id="event-name" name="event_name">
+      <br>
+
+      <label for="event-description">Event Description:</label>
+      <textarea id="event-description" name="event_description"></textarea>
+      <br>
+
+      <label for="event-date">Event Date:</label>
+      <input type="date" id="event-date" name="event_date">
+      <br>
+
+      <input type="submit" value="Create Event" class="submit-button">
+    </form>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2023 ChronoInvestigation Project</p>
+    <p>Contact us at: (your contact information)</p>
+    <p>Project licensed under the MIT License. See LICENSE.md for details.</p>
+  </footer>
+</body>
+</html>

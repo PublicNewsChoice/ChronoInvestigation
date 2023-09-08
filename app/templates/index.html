@@ -2,10 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Your App Name</title>
-  <!-- Include the general style CSS file to style your page -->
+  <title>ChronoInvestigation Project</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-  <!-- Include a CSS file specific to the home page -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
 </head>
 <body>
@@ -15,52 +13,51 @@
       <li><a href="{{ url_for('main.home') }}">Home</a></li>
       <li><a href="{{ url_for('organization.organizations') }}">Organizations</a></li>
       <li><a href="{{ url_for('person.people') }}">People</a></li>
+      <li><a href="{{ url_for('timeline_creator.index') }}">Timeline Creator</a></li>
+      <li><a href="{{ url_for('timeline_linking.index') }}">Timeline Linking</a></li>
+      <li><a href="{{ url_for('interactive_visualization.index') }}">Interactive Visualization</a></li>
       <!-- Add links to other sections as necessary -->
     </ul>
   </nav>
 
   <!-- Header Section -->
   <header class="home-header">
-    <h1>Public News Press Investigation Tools</h1>
-    <p>i'll eventually get around to writing something, lol</p>
+    <h1>Welcome to the ChronoInvestigation Project</h1>
+    <p>Developing a Python tool that facilitates visual investigative scenarios, promoting a detailed chronological visualization of events and their interconnections.</p>
   </header>
 
   <!-- Main Content -->
   <main class="home-main">
     <h2>Features</h2>
-    <!-- Feature Section: Organizations -->
+
+    <!-- Feature Sections with links to respective tools/features -->
     <div class="feature-section">
-      <h3>Organizations</h3>
-      <p>Manage and view different organizations in a centralized space. Know more about each organization, add new ones, and keep your data organized.</p>
-      <a href="{{ url_for('organization.organizations') }}">Explore Organizations</a>
+      <h3>Visual Timeline Creator</h3>
+      <p>Create and delineate a series of events in chronological order.</p>
+      <a href="{{ url_for('timeline_creator.index') }}">Go to Visual Timeline Creator</a>
     </div>
 
-    <!-- Feature Section: People -->
     <div class="feature-section">
-      <h3>People</h3>
-      <p>Keep track of people and their details seamlessly. Add new people, view existing profiles, and maintain a detailed database.</p>
-      <a href="{{ url_for('person.people') }}">Explore People</a>
+      <h3>Timeline Linking</h3>
+      <p>Link events from different timelines for a broader picture.</p>
+      <a href="{{ url_for('timeline_linking.index') }}">Go to Timeline Linking</a>
     </div>
 
-    <!-- Feature Section: Events -->
     <div class="feature-section">
-      <h3>Events</h3>
-      <p>Organize and manage events effectively. Add upcoming events, view past events, and have all the details at your fingertips.</p>
-      <a href="{{ url_for('events.list_events') }}">Explore Events</a>
+      <h3>Interactive Visualization</h3>
+      <p>A user-friendly interface to gain insights into individual events and connections.</p>
+      <a href="{{ url_for('interactive_visualization.index') }}">Go to Interactive Visualization</a>
     </div>
 
-    <!-- Feature Section: Actions -->
-    <div class="feature-section">
-      <h3>Actions</h3>
-      <p>Stay on top of the actions planned in your organization. Add new actions, view the details of existing ones, and manage them efficiently.</p>
-      <a href="{{ url_for('actions.list_actions') }}">Explore Actions</a>
-    </div>
+    <!-- Include similar sections for 'In Progress' and 'Planned' features as they become available -->
+
   </main>
 
   <!-- Footer -->
   <footer>
-    <p>© 2023 Public News Press Investigation Tools</p>
-    <!-- Add other footer contents such as contact info, social media links, etc. -->
+    <p>© 2023 ChronoInvestigation Project</p>
+    <p>Contact us at: (your contact information)</p>
+    <p>Project licensed under the MIT License. See LICENSE.md for details.</p>
   </footer>
 </body>
 </html>
