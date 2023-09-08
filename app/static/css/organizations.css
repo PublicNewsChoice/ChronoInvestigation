@@ -1,71 +1,111 @@
+/* General Styles */
 body {
-  font-family: Arial, sans-serif;
+    font-family: 'Arial, sans-serif';
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+/* Navigation Bar Styles */
+nav {
+    background-color: #333;
+    overflow: hidden;
 }
 
 nav ul {
-  display: flex;
-  justify-content: space-around;
-  background-color: #343a40; /* dark background color for the nav bar */
-  padding: 10px;
-  list-style-type: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 nav li {
-  margin: 0 15px;
+    float: left;
 }
 
-nav a {
-  text-decoration: none;
-  color: #ffffff; /* white text for the nav links */
+nav li a {
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
 
-.organizations-header {
-  margin: 20px;
-  background-color: #343a40; /* dark background color for the header */
-  color: #ffffff; /* white text for the header */
-  padding: 20px;
-  border-radius: 4px;
-  text-align: center;
+nav li a:hover {
+    background-color: #111;
 }
 
-.organizations-main {
-  margin: 20px;
+nav li a.active {
+    background-color: #4CAF50;
 }
 
-.organizations-main h2 {
-  margin-bottom: 20px;
+/* Header Section Styles */
+.org-header {
+    background-color: #f8f9fa;
+    padding: 20px;
+    text-align: center;
 }
 
-.organization-actions {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  margin-bottom: 20px;
+/* Main Content Styles */
+.org-main {
+    padding: 20px;
 }
 
-.organization-action {
-  background-color: #28a745;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 4px;
-  text-decoration: none;
+.add-organization, .organization-list {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
-.organization-action:hover {
-  background-color: #218838;
+.add-organization form, .organization-list ul {
+    margin: 0;
+    padding: 0;
 }
 
-.organization-list {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
+.add-organization label, .organization-list h3 {
+    display: block;
+    margin-bottom: 10px;
 }
 
-.organization-item {
-  margin-bottom: 10px;
+.add-organization input, .add-organization button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
+.add-organization button {
+    background-color: #28a745;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+}
+
+.add-organization button:hover {
+    background-color: #218838;
+}
+
+.organization-list ul {
+    list-style-type: none;
+}
+
+.organization-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.organization-list li:last-child {
+    border-bottom: none;
+}
+
+/* Footer Styles */
 footer {
-  margin: 20px;
-  text-align: center;
+    background-color: #f8f9fa;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }

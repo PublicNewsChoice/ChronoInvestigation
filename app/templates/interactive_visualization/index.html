@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Interactive Visualization</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/interactive_visualization.css') }}">
+</head>
+<body>
+  <!-- Navigation Bar -->
+<nav>
+  <ul>
+    <li><a href="{{ url_for('main.home') }}">Home</a></li>
+    <li><a href="{{ url_for('organization.organizations') }}">Organizations</a></li>
+    <li><a href="{{ url_for('person.people') }}">People</a></li>
+    <li><a href="{{ url_for('timeline_creator.index') }}">Timeline Creator</a></li>
+    <li><a href="{{ url_for('timeline_linking.index') }}">Timeline Linking</a></li>
+    <li class="active"><a href="{{ url_for('interactive_visualization.index') }}">Interactive Visualization</a></li>
+    <!-- Add links to other sections as necessary -->
+  </ul>
+</nav>
+
+  <!-- Header Section -->
+  <header class="iv-header">
+    <h1>Interactive Visualization</h1>
+    <p>Delve deeper into events and their interconnections through a dynamic visualization platform.</p>
+  </header>
+
+  <!-- Main Content -->
+  <main class="iv-main">
+    <section class="visualization-section">
+      <h2>Feature Overview</h2>
+      <p>Explore the dynamic visualization tools available in this section.</p>
+    </section>
+
+    <section class="feature-section">
+      <h3>Dynamic Timelines</h3>
+      <p>Visualize events dynamically over time, illustrating the progression and interconnections of different narratives.</p>
+      <!-- Placeholder for Dynamic Timelines feature, replace with actual content -->
+      <div id="dynamic-timelines">Content coming soon</div>
+    </section>
+
+    <section class="feature-section">
+      <h3>Event Networks</h3>
+      <p>Examine the network of events, illustrating the relationships and interdependencies between different events.</p>
+      <!-- Placeholder for Event Networks feature, replace with actual content -->
+      <div id="event-networks">Content coming soon</div>
+    </section>
+
+    <section class="feature-section">
+      <h3>Geospatial Analysis</h3>
+      <p>Explore events through a geographical lens, visualizing the spatial relationships and patterns.</p>
+      <!-- Placeholder for Geospatial Analysis feature, replace with actual content -->
+      <div id="geospatial-analysis">Content coming soon</div>
+    </section>
+
+    <section class="feature-section">
+      <h3>Data Analytics</h3>
+      <p>Analyze the data behind events, leveraging analytical tools to gain deeper insights.</p>
+      <!-- Placeholder for Data Analytics feature, replace with actual content -->
+      <div id="data-analytics">Content coming soon</div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2023 ChronoInvestigation Project</p>
+    <p>Contact us at: (your contact information)</p>
+    <p>Project licensed under the MIT License. See LICENSE.md for details.</p>
+  </footer>
+</body>
+</html>

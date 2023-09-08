@@ -14,7 +14,10 @@
     <ul>
       <li><a href="{{ url_for('main.home') }}">Home</a></li>
       <li><a href="{{ url_for('organization.organizations') }}">Organizations</a></li>
-      <li><a href="{{ url_for('person.people') }}">People</a></li>
+      <li class="active"><a href="{{ url_for('person.people') }}">People</a></li>
+      <li><a href="{{ url_for('timeline_creator.index') }}">Timeline Creator</a></li>
+      <li><a href="{{ url_for('timeline_linking.index') }}">Timeline Linking</a></li>
+      <li><a href="{{ url_for('interactive_visualization.index') }}">Interactive Visualization</a></li>
       <!-- Add links to other sections as necessary -->
     </ul>
   </nav>
@@ -22,37 +25,39 @@
   <!-- Header Section -->
   <header class="people-header">
     <h1>People</h1>
-    <p>Discover various people and add new ones to the list.</p>
+    <p>Explore the stories of different individuals and add new ones to the database.</p>
   </header>
 
   <!-- Main Content -->
   <main class="people-main">
-    <!-- Form to Add New People -->
-    <section class="add-people">
+    <!-- Form to Add New Individuals -->
+    <section class="add-person">
       <h2>Add a New Person</h2>
       <form action="/person/add" method="POST">
-        <!-- Include form fields for the person details -->
-        <label for="first_name">First Name</label>
-        <input type="text" id="first_name" name="first_name" required>
+        <!-- Include form fields for the individual's details -->
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
 
-        <label for="last_name">Last Name</label>
-        <input type="text" id="last_name" name="last_name" required>
+        <label for="birthdate">Birthdate</label>
+        <input type="date" id="birthdate" name="birthdate">
 
-        <!-- Include other fields as needed -->
+        <label for="biography">Biography</label>
+        <textarea id="biography" name="biography"></textarea>
 
         <button type="submit">Add Person</button>
       </form>
     </section>
 
-    <!-- Section to List All People -->
-    <section class="people-list">
+    <!-- Section to List All Individuals -->
+    <section class="person-list">
       <h2>People List</h2>
       <ul>
-        <!-- Loop through all people and display them here -->
+        <!-- Loop through all individuals and display them here -->
         {% for person in people %}
           <li>
-            <h3>{{ person.first_name }} {{ person.last_name }}</h3>
-            <!-- Display other person details as needed -->
+            <h3>{{ person.name }}</h3>
+            <p>Birthdate: {{ person.birthdate }}</p>
+            <p>Biography: {{ person.biography }}</p>
           </li>
         {% endfor %}
       </ul>

@@ -1,73 +1,96 @@
+/* General Styles */
 body {
-  font-family: Arial, sans-serif;
+    font-family: 'Arial, sans-serif';
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation Bar Styles */
+nav {
+    background-color: #333;
+    overflow: hidden;
 }
 
 nav ul {
-  display: flex;
-  justify-content: space-around;
-  background-color: #f8f9fa;
-  padding: 10px;
-  list-style-type: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 nav li {
-  margin: 0 15px;
+    float: left;
 }
 
-nav a {
-  text-decoration: none;
-  color: #000;
+nav li a {
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
 
-.people-header, .people-main, .add-people, .people-list {
-  margin: 20px;
+nav li a:hover {
+    background-color: #111;
 }
 
-.add-people form {
-  display: flex;
-  flex-direction: column;
+nav li .active {
+    background-color: #4CAF50;
 }
 
-.add-people label {
-  margin: 10px 0 5px;
+/* Header Section Styles */
+.people-header {
+    background-color: #f8f9fa;
+    padding: 20px;
+    text-align: center;
 }
 
-.add-people input {
-  margin-bottom: 15px;
-  padding: 10px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
+/* Main Content Styles */
+.people-main {
+    padding: 20px;
 }
 
-.add-people button {
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
-  background-color: #28a745;
-  color: #fff;
-  cursor: pointer;
+.add-person, .person-list {
+    margin-bottom: 20px;
 }
 
-.add-people button:hover {
-  background-color: #218838;
+.add-person h2, .person-list h2 {
+    margin-bottom: 10px;
 }
 
-.people-list ul {
-  list-style-type: none;
-  padding: 0;
+.add-person label, .person-list label {
+    display: block;
+    margin-bottom: 5px;
 }
 
-.people-list li {
-  background-color: #f8f9fa;
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 4px;
+.add-person input, .add-person textarea, .person-list input, .person-list textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
-.people-list h3 {
-  margin: 0 0 10px;
+/* Button Styles */
+button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
 }
 
-.people-list p {
-  margin: 5px 0;
+button:hover {
+    background-color: #218838;
 }
+
+/* Footer Styles */
+footer {
+    background-color: #f8f9fa;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+

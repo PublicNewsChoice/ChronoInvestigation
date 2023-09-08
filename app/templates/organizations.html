@@ -13,8 +13,11 @@
   <nav>
     <ul>
       <li><a href="{{ url_for('main.home') }}">Home</a></li>
-      <li><a href="{{ url_for('organization.organizations') }}">Organizations</a></li>
+      <li class="active"><a href="{{ url_for('organization.organizations') }}">Organizations</a></li>
       <li><a href="{{ url_for('person.people') }}">People</a></li>
+      <li><a href="{{ url_for('timeline_creator.index') }}">Timeline Creator</a></li>
+      <li><a href="{{ url_for('timeline_linking.index') }}">Timeline Linking</a></li>
+      <li><a href="{{ url_for('interactive_visualization.index') }}">Interactive Visualization</a></li>
       <!-- Add links to other sections as necessary -->
     </ul>
   </nav>

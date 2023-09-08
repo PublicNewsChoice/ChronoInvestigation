@@ -1,61 +1,95 @@
+/* General Styles */
 body {
-  font-family: Arial, sans-serif;
+    font-family: 'Arial, sans-serif';
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+/* Navigation Bar Styles */
+nav {
+    background-color: #333;
+    overflow: hidden;
 }
 
 nav ul {
-  display: flex;
-  justify-content: space-around;
-  background-color: #343a40; /* dark background color for the nav bar */
-  padding: 10px;
-  list-style-type: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 nav li {
-  margin: 0 15px;
+    float: left;
 }
 
-nav a {
-  text-decoration: none;
-  color: #ffffff; /* white text for the nav links */
+nav li a {
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
 
+nav li a:hover {
+    background-color: #111;
+}
+
+nav li a.active {
+    background-color: #4CAF50;
+}
+
+/* Header Section Styles */
 .home-header {
-  margin: 20px;
-  background-color: #343a40; /* dark background color for the header */
-  color: #ffffff; /* white text for the header */
-  padding: 20px;
-  border-radius: 4px;
-  text-align: center;
+    background-color: #f8f9fa;
+    padding: 20px;
+    text-align: center;
 }
 
+/* Main Content Styles */
 .home-main {
-  margin: 20px;
+    padding: 20px;
 }
 
-.home-main h2 {
-  margin-bottom: 20px;
+.creation-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.feature-links {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
+.creation-form label {
+    display: block;
+    margin-bottom: 10px;
 }
 
-.feature-link {
-  background-color: #28a745;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 4px;
-  text-decoration: none;
-  margin-bottom: 10px;
+.creation-form input, .creation-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
-.feature-link:hover {
-  background-color: #218838;
+.creation-form .submit-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
 }
 
+.creation-form .submit-button:hover {
+    background-color: #218838;
+}
+
+/* Footer Styles */
 footer {
-  margin: 20px;
-  text-align: center;
+    background-color: #f8f9fa;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
