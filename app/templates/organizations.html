@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Your App Name - Organizations</title>
+  <!-- Include the general style CSS file to style your page -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <!-- Include the organization-specific CSS file -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/organizations.css') }}">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <ul>
+      <li><a href="{{ url_for('main.home') }}">Home</a></li>
+      <li><a href="{{ url_for('organization.organizations') }}">Organizations</a></li>
+      <li><a href="{{ url_for('person.people') }}">People</a></li>
+      <!-- Add links to other sections as necessary -->
+    </ul>
+  </nav>
+
+  <!-- Header Section -->
+  <header class="org-header">
+    <h1>Organizations</h1>
+    <p>Discover various organizations and add new ones to the list.</p>
+  </header>
+
+  <!-- Main Content -->
+  <main class="org-main">
+    <!-- Form to Add New Organizations -->
+    <section class="add-organization">
+      <h2>Add a New Organization</h2>
+      <form action="/organization/add" method="POST">
+        <!-- Include form fields for the organization details -->
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="address">Address</label>
+        <input type="text" id="address" name="address">
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email">
+
+        <label for="phone">Phone</label>
+        <input type="text" id="phone" name="phone">
+
+        <button type="submit">Add Organization</button>
+      </form>
+    </section>
+
+    <!-- Section to List All Organizations -->
+    <section class="organization-list">
+      <h2>Organization List</h2>
+      <ul>
+        <!-- Loop through all organizations and display them here -->
+        {% for organization in organizations %}
+          <li>
+            <h3>{{ organization.name }}</h3>
+            <p>{{ organization.address }}</p>
+            <p>{{ organization.email }}</p>
+            <p>{{ organization.phone }}</p>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2023 Your App Name</p>
+    <!-- Add other footer contents such as contact info, social media links, etc. -->
+  </footer>
+</body>
+</html>

@@ -1,0 +1,73 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  background-color: #f8f9fa;
+  padding: 10px;
+  list-style-type: none;
+}
+
+nav li {
+  margin: 0 15px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #000;
+}
+
+.people-header, .people-main, .add-people, .people-list {
+  margin: 20px;
+}
+
+.add-people form {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-people label {
+  margin: 10px 0 5px;
+}
+
+.add-people input {
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.add-people button {
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #28a745;
+  color: #fff;
+  cursor: pointer;
+}
+
+.add-people button:hover {
+  background-color: #218838;
+}
+
+.people-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.people-list li {
+  background-color: #f8f9fa;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+}
+
+.people-list h3 {
+  margin: 0 0 10px;
+}
+
+.people-list p {
+  margin: 5px 0;
+}

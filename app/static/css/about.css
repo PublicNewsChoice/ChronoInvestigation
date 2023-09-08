@@ -1,0 +1,14 @@
+/* Styles specific to the about page */
+
+.about-section {
+    padding: 50px;
+}
+
+.about-section h2 {
+    margin-bottom: 20px;
+}
+
+.about-section p {
+    line-height: 1.6;
+}
+

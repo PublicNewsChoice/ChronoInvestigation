@@ -3,9 +3,7 @@ from app.database import db
 from app.models import Action
 from app.forms import ActionForm
 
-main_bp = Blueprint('main', __name__)
 actions = Blueprint('actions', __name__)
-person_bp = Blueprint('person', __name__)
 
 # Create
 @actions.route('/action/create', methods=['GET', 'POST'])
