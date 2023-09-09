@@ -1,48 +1,26 @@
-(AI assistance was utilized for a majority of this code)
+### Public News Choice Tool
 
-# ChronoInvestigation Project
-
-## Description
-
-The ChronoInvestigation project is aimed at developing a Python tool that facilitates visual investigative scenarios, akin to the VIS tool by OCCRP. Our tool goes a step further by allowing users to create, visualize, and link timelines, promoting a detailed chronological visualization of events and how they interconnect.
+# Overview
+The "Public News Choice Tool" is a web application developed with the Python Flask framework, envisioned to be a comprehensive platform where users can not only manage detailed profiles of individuals but also create intricate timelines related to those individuals, echoing functionalities seen in the revered VIS tool. This project sets a new standard in documenting and visualizing intricate relationships and events spanning over various timelines.
 
 ## Features
+Individual Profiles: Allows users to create, update, and manage detailed profiles encompassing not only basic details but also nuanced attributes, facilitating a deeper understanding and detailed tracking of individuals.
+Timeline Creation and Linking: Users will have the ability to create timelines delineating significant events in an individual’s life or a specific series of events. These timelines can be interlinked, providing a comprehensive view and understanding of how different events and individual lives interconnect.
+Article Attachments: A unique feature where users can attach articles and other pieces of information to specific events, individuals, or timelines, allowing for a rich, detailed source of information and references directly linked to the events or individuals they pertain to.
 
-### Implemented
+## Upcoming Features
+Visual Timeline Representation: The heart of this project lies in its ambitious aim to offer a visual representation of timelines, where users can visually traverse through different events, understand the chronological relationships between them, and delve into the intricate web of interconnected events and individuals.
+Event and Action Recording: Users will be encouraged to add detailed events and actions to individual timelines, fostering a detailed narrative that encapsulates the multifaceted nature of real-world events and personal narratives.
 
-- **Visual Timeline Creator**: Allows users to create individual timelines delineating a series of events in a chronological order.
-- **Timeline Linking**: Enables users to link events from different timelines, creating a network of interconnected events that can help in visualizing the broader picture.
-- **Interactive Visualization**: Users can interact with the visualizations, gaining insights into the individual events and their connections through a user-friendly interface.
+## Future Endeavors
+As we forge ahead, we aim to introduce more functionalities, including but not limited to:
 
-### In Progress
+Rich Media Integration: Enhancements to allow users to integrate rich media such as videos, images, and podcasts to timelines, ensuring a multimedia-rich narrative.
+Collaborative Features: Facilities for collaborative timeline creation, where multiple users can co-create and manage timelines, fostering a collaborative environment.
+Machine Learning Integration: Leveraging machine learning algorithms to provide intelligent insights and analytics derived from the extensive data collected through the platform.
 
-- **Collaborative Timelines**: Functionality that will allow multiple users to collaborate on a single timeline, adding and editing events collectively.
-- **Integration with External Data Sources**: We are working to enable the tool to integrate and fetch data from external sources to facilitate real-time updates to the timelines.
-
-### Planned
-
-- **Advanced Search and Filter**: Users will be able to search and filter events based on various criteria to quickly find the information they are looking for.
-- **Reporting Feature**: A feature that will allow users to generate reports from the timelines, facilitating the sharing and presentation of findings.
-
-## Progress Report
-
-As of our latest update, we have successfully developed the core functionalities of the ChronoInvestigation tool, including the visual timeline creator and timeline linking feature. The interactive visualization interface is in a functional state, allowing users to work with the basic version of the tool.
-
-We are in the process of implementing collaborative timelines and integration with external data sources, aiming to provide a more enriched user experience in the upcoming versions.
-
-## How to Contribute
-
-We welcome contributions from the community. If you would like to contribute, please follow these steps:
-
-1. Fork the repository.
-2. Create a new branch for your features or fixes.
-3. Submit a pull request, detailing the changes you have made.
-4. Await review from the maintainers.
-
-## Contact
-
-If you have any questions, feel free to reach out to us at (your contact information).
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE.md file for details.
+## Development Timeline
+Phase 1 (Current): Laying down the foundation with basic people management and API endpoint setup.
+Phase 2: Introduction of the timeline creation and management feature with basic visualization capabilities.
+Phase 3: Integration of article attachment functionalities and initial deployment of visual representation features for the timelines.
+Phase 4: Further enhancements including rich media integration and collaborative features, aiming for a robust, multimedia-rich platform.
