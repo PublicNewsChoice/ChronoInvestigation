@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="content-section">
+    <h2>Person Overview</h2>
+    <p>Welcome to the person section. Here you can manage all person-related activities.</p>
+    <ul>
+        <li><a href="{{ url_for('person.new_person') }}">Create a new person</a></li>
+        <li><a href="{{ url_for('person.people') }}">View all people</a></li>
+    </ul>
+</div>
+{% endblock content %}

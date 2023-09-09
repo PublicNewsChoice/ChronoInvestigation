@@ -1,58 +1,53 @@
-from flask import render_template, url_for, flash, redirect, request, Blueprint
-from app.database import db
-from app.models import Action
-from app.forms import ActionForm
+from flask import render_template, redirect, url_for, request, Blueprint
+from app import db
+from app.models import Action, Article
+from app.forms import ActionForm, ArticleForm
 
-actions = Blueprint('actions', __name__)
+action_routes = Blueprint('action_routes', __name__)
 
-# Create
-@actions.route('/action/create', methods=['GET', 'POST'])
+@action_routes.route('/actions', methods=['GET'])
+def list_actions():
+    actions = Action.query.all()
+    return render_template('action/list.html', actions=actions)
+
+@action_routes.route('/action/<int:id>', methods=['GET'])
+def action_detail(id):
+    action = Action.query.get_or_404(id)
+    return render_template('action/detail.html', action=action)
+
+@action_routes.route('/action/create', methods=['GET', 'POST'])
 def create_action():
     form = ActionForm()
     if form.validate_on_submit():
-        # create a new action and add it to the database
-        action = Action(name=form.name.data, description=form.description.data)
+        action = Action(name=form.name.data, description=form.description.data, date=form.date.data)
+        article_ids = form.article_ids.data
+        if article_ids:
+            articles = Article.query.filter(Article.id.in_(article_ids)).all()
+            action.articles.extend(articles)
         db.session.add(action)
         db.session.commit()
-        flash('Action created successfully!', 'success')
-        return redirect(url_for('actions.list_actions'))
-    return render_template('action/create.html', title='Create Action', form=form)
+        return redirect(url_for('action_routes.list_actions'))
+    return render_template('action/create.html', form=form)
 
-# Read
-@actions.route('/action/<int:id>', methods=['GET'])
-def action_detail(id):
-    # get action details by id
+@action_routes.route('/action/edit/<int:id>', methods=['GET', 'POST'])
+def edit_action(id):
     action = Action.query.get_or_404(id)
-    return render_template('action/detail.html', title='Action Details', action=action)
-
-# Update
-@actions.route('/action/<int:id>/update', methods=['GET', 'POST'])
-def update_action(id):
-    action = Action.query.get_or_404(id)
-    form = ActionForm()
+    form = ActionForm(obj=action)
     if form.validate_on_submit():
-        # update the action details
         action.name = form.name.data
         action.description = form.description.data
+        action.date = form.date.data
+        # Updating the articles associated with the action
+        article_ids = form.article_ids.data
+        if article_ids:
+            action.articles = Article.query.filter(Article.id.in_(article_ids)).all()
         db.session.commit()
-        flash('Action updated successfully!', 'success')
-        return redirect(url_for('actions.action_detail', id=action.id))
-    elif request.method == 'GET':
-        form.name.data = action.name
-        form.description.data = action.description
-    return render_template('action/edit.html', title='Update Action', form=form, action=action)
+        return redirect(url_for('action_routes.action_detail', id=id))
+    return render_template('action/edit.html', form=form, action=action)
 
-# Delete
-@actions.route('/action/<int:id>/delete', methods=['POST'])
+@action_routes.route('/action/delete/<int:id>', methods=['POST'])
 def delete_action(id):
     action = Action.query.get_or_404(id)
     db.session.delete(action)
     db.session.commit()
-    flash('Action deleted successfully!', 'success')
-    return redirect(url_for('actions.list_actions'))
-
-# List
-@actions.route('/actions', methods=['GET'])
-def list_actions():
-    actions = Action.query.all()
-    return render_template('action/list.html', title='Actions', actions=actions)
+    return redirect(url_for('action_routes.list_actions'))

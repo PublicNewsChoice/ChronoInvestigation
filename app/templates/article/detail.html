@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    <h1>{{ article.title }}</h1>
+    <p>{{ article.url }}</p>
+    <p>{{ article.source }}</p>
+    <p>{{ article.publication_date }}</p>
+    <p>{{ article.summary }}</p>
+</div>
+<div>
+    <a href="{{ url_for('article_routes.edit_article', id=article.id) }}">Edit</a>
+    <form action="{{ url_for('article_routes.delete_article', id=article.id) }}" method="POST" style="display:inline-block;">
+        <button type="submit">Delete</button>
+    </form>
+</div>
+{% endblock %}

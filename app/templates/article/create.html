@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Create Article</h1>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <div class="mb-3">
+            {{ form.label('title') }}
+            {{ form.title(class='form-control') }}
+        </div>
+        <div class="mb-3">
+            {{ form.label('url') }}
+            {{ form.url(class='form-control') }}
+        </div>
+        <div class="mb-3">
+            {{ form.label('source') }}
+            {{ form.source(class='form-control') }}
+        </div>
+        <div class="mb-3">
+            {{ form.label('publication_date') }}
+            {{ form.publication_date(class='form-control') }}
+        </div>
+        <div class="mb-3">
+            {{ form.label('summary') }}
+            {{ form.summary(class='form-control') }}
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+{% endblock %}

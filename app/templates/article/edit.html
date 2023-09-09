@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <div>
+        {{ form.title.label }}: {{ form.title() }}
+    </div>
+    <div>
+        {{ form.url.label }}: {{ form.url() }}
+    </div>
+    <div>
+        {{ form.source.label }}: {{ form.source() }}
+    </div>
+    <div>
+        {{ form.publication_date.label }}: {{ form.publication_date() }}
+    </div>
+    <div>
+        {{ form.summary.label }}: {{ form.summary() }}
+    </div>
+    <button type="submit">Update Article</button>
+</form>
+{% endblock %}

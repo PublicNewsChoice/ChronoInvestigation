@@ -1,0 +1,11 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Person Details</h1>
+  
+  <p><strong>Name:</strong> {{ person.name }}</p>
+  <!-- Repeat similar lines for other attributes -->
+  
+  <a href="{{ url_for('person.update_person', person_id=person.id) }}">Edit</a>
+  <a href="{{ url_for('person.delete_person', person_id=person.id) }}">Delete</a>
+{% endblock %}

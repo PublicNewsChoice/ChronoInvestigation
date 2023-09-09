@@ -16,6 +16,7 @@
       <li><a href="{{ url_for('timeline_creator.index') }}">Timeline Creator</a></li>
       <li><a href="{{ url_for('timeline_linking.index') }}">Timeline Linking</a></li>
       <li><a href="{{ url_for('interactive_visualization.index') }}">Interactive Visualization</a></li>
+      <li><a href="{{ url_for('main.articles') }}">Articles</a></li> <!-- New Link to Articles -->
     </ul>
   </nav>
 
@@ -46,6 +47,16 @@
       </div>
     </section>
 
+    <!-- Recent Articles -->
+    <section class="recent-articles">
+      <h2>Recent Articles</h2>
+      <ul>
+        {% for article in articles[-5:] %}
+        <li><a href="{{ url_for('main.article_detail', id=article.id) }}">{{ article.title }}</a> - {{ article.publication_date.strftime('%Y-%m-%d') if article.publication_date else 'No date provided' }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+
     <!-- Tutorials and Documentation -->
     <section class="guidance">
       <h2>Tutorials and Documentation</h2>
@@ -58,10 +69,12 @@
       <h2>What Users Are Saying</h2>
       <!-- Display testimonials from users here -->
     </section>
-
   </main>
 
   <!-- Footer -->
   <footer>
     <p>© 2023 ChronoInvestigation Project</p>
     <p>Contact us at: info@chronoinvestigation.com</p>
+  </footer>
+</body>
+</html>

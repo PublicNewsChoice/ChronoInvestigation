@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Create New Person</h1>
+  <form action="" method="post">
+    <!-- CSRF token for security -->
+    {{ form.hidden_tag() }}
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" name="name" class="form-control" id="name" value="{{ request.form['name'] }}">
+    </div>
+    <!-- Repeat for other fields, reflecting each attribute in your Person model -->
+
+    <button type="submit" class="btn btn-primary">Create</button>
+  </form>
+{% endblock %}

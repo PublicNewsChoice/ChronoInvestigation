@@ -7,7 +7,7 @@ main_bp = Blueprint('main', __name__)
 person_bp = Blueprint('person', __name__)
 
 @person_bp.route('/person/new', methods=['GET', 'POST'])
-def new_person():
+def create_person():  # Changed the function name to create_person
     form = PersonForm()
     if form.validate_on_submit():
         person = Person(name=form.name.data, email=form.email.data, organization_id=form.organization_id.data)

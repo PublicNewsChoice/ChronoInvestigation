@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Articles</h1>
+    <a href="{{ url_for('main.create_article') }}" class="btn btn-primary mb-3">Create Article</a>
+    <ul class="list-group">
+        {% for article in articles %}
+            <li class="list-group-item">
+                <a href="{{ url_for('main.article_detail', id=article.id) }}">{{ article.title }}</a>
+                <small class="text-muted">{{ article.publication_date.strftime('%Y-%m-%d') if article.publication_date else '' }}</small>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

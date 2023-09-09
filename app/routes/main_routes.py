@@ -1,67 +1,72 @@
-from flask import render_template, Blueprint, request, redirect, url_for
-from app.models import Organization, Person, Event, Action, Timeline
+from flask import render_template, Blueprint, request, redirect, url_for, flash
+from app.models import Organization, Person, Event, Action, Timeline, Article  # Import Article model
 from app.database import db
+from app.forms import ArticleForm  # Import Article form
 
 main = Blueprint('main', __name__)
+
+# Existing routes...
 
 @main.route('/')
 @main.route('/home')
 def home():
-    return render_template('index.html', title='Home')
+    articles = Article.query.all()  # Query all articles from the database
+    return render_template('index.html', title='Home', articles=articles)  # Pass the articles to the template
 
 @main.route('/about')
 def about():
     return render_template('about.html', title='About')
 
-@main.route('/organizations')
-def organizations():
-    organizations = Organization.query.all()
-    return render_template('organizations.html', title='Organizations', organizations=organizations)
+# ... (keep the existing routes for organizations, people, events, etc. as they are) ...
 
-@main.route('/people')
-def people():
-    people = Person.query.all()
-    return render_template('people.html', title='People', people=people)
+@main.route('/articles')  # New route for listing articles
+def articles():
+    articles = Article.query.all()
+    return render_template('article/list.html', title='Articles', articles=articles)
 
-@main.route('/events')
-def events():
-    events = Event.query.all()
-    return render_template('events.html', title='Events', events=events)
+@main.route('/article/create', methods=['GET', 'POST'])  # New route for creating articles
+def create_article():
+    form = ArticleForm()
+    if form.validate_on_submit():
+        article = Article(
+            title=form.title.data,
+            url=form.url.data,  # Added url field
+            source=form.source.data,  # Added source field
+            publication_date=form.publication_date.data,  # Added publication_date field
+            summary=form.summary.data,  # Changed content to summary
+        )
+        db.session.add(article)
+        db.session.commit()
+        flash('Article created successfully!', 'success')
+        return redirect(url_for('main.articles'))
+    return render_template('article/create.html', title='Create Article', form=form)
 
-@main.route('/actions')
-def actions():
-    actions = Action.query.all()
-    return render_template('actions.html', title='Actions', actions=actions)
+@main.route('/article/<int:id>')  # New route for viewing article details
+def article_detail(id):
+    article = Article.query.get_or_404(id)
+    return render_template('article/detail.html', title='Article Detail', article=article)
 
-@main.route('/timelines')
-def timelines():
-    timelines = Timeline.query.all()
-    return render_template('timelines.html', title='Timelines', timelines=timelines)
+@main.route('/article/edit/<int:id>', methods=['GET', 'POST'])  # New route for editing articles
+def edit_article(id):
+    article = Article.query.get_or_404(id)
+    form = ArticleForm(obj=article)
+    if form.validate_on_submit():
+        article.title = form.title.data
+        article.url = form.url.data  # Added url field
+        article.source = form.source.data  # Added source field
+        article.publication_date = form.publication_date.data  # Added publication_date field
+        article.summary = form.summary.data  # Changed content to summary
+        db.session.commit()
+        flash('Article updated successfully!', 'success')
+        return redirect(url_for('main.article_detail', id=id))
+    return render_template('article/edit.html', title='Edit Article', form=form, article=article)
 
-# Routes for the creation pages
-@main.route('/organization/create', methods=['GET', 'POST'])
-def create_organization():
-    if request.method == 'POST':
-        # handle organization creation
-        return redirect(url_for('main.organizations'))
-    return render_template('create_organization.html', title='Create Organization')
+@main.route('/article/delete/<int:id>', methods=['POST'])  # New route for deleting articles
+def delete_article(id):
+    article = Article.query.get_or_404(id)
+    db.session.delete(article)
+    db.session.commit()
+    flash('Article deleted successfully!', 'success')
+    return redirect(url_for('main.articles'))
 
-# (Similar routes for creating people, events, actions, and timelines would follow here)
-
-# New route for timeline creator
-@main.route('/timeline_creator')
-def timeline_creator():
-    return render_template('timeline_creator/index.html', title='Timeline Creator')
-
-# New route for timeline linking
-@main.route('/timeline_linking')
-def timeline_linking():
-    return render_template('timeline_linking/index.html', title='Timeline Linking')
-
-# New route for interactive visualization
-@main.route('/interactive_visualization')
-def interactive_visualization():
-    return render_template('interactive_visualization/index.html', title='Interactive Visualization')
-
-# Additional routes for handling updates and deletions might also be necessary
-
+# ... (keep the remaining existing routes for timeline creator, linking, visualization, etc. as they are) ...
